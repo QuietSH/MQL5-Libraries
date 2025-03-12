@@ -163,7 +163,7 @@ public:
     }
     
     void DeleteDraw(){
-      for(int i = 0; i < ArraySize(RangeLines) -1; i++){
+      for(int i = 0; i <= ArraySize(RangeLines) -1; i++){
          ObjectDelete(NULL,RangeLines[i]);
       }
     }
