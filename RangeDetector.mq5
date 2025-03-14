@@ -74,6 +74,8 @@ public:
     }
     
     void InitRange(){
+      if(!isInit)
+         return;
       if(nextUpdate == -1 || nextUpdate < TimeCurrent()){
          CheckRange();
          DrawRange(0);
@@ -83,7 +85,7 @@ public:
     }
     void CheckRange() {
         isValidRange = false; // Reset the flag before each scan
-        if(!isInit){Print("Class not initialized");return;}
+        if(!isInit){return;}
         Print("Starting range scan...");
             
         for (int i = bars + 1; i >= 1; i--) {
@@ -134,7 +136,7 @@ public:
     }
     
     void PrintRange(int idx = -1){
-      if(!isInit){Print("Class not initialized");return;}
+      if(!isInit){return;}
       int s = ArraySize(Ranges);
       Print(s);
       if(idx == -1){
@@ -155,7 +157,7 @@ public:
     }
     
     void DrawRange(int idx){
-      if(!isInit){Print("Class not initialized");return;}
+      if(!isInit){return;}
       string h = name + "_Range_" + idx + "_High", l = name + "_Range_" + idx + "_Low";
       AddRangeLine(h,l);
       Draw.Trendline(h,Ranges[idx].High,Ranges[idx].StartDate,clr,width);
