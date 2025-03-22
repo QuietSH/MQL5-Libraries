@@ -79,7 +79,7 @@ public:
       if(nextUpdate == -1 || nextUpdate < TimeCurrent()){
          CheckRange();
          DrawRange(0);
-         nextUpdate = TimeCurrent() + TimeframeToSeconds(tf);
+         nextUpdate = TimeCurrent() + TimeframeToSeconds(tf) - (TimeframeToSeconds(tf) / 4);
          Print(name + " RangeFinder Next Update: " + GetDateTime(nextUpdate));
       }
     }
